@@ -30,3 +30,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^api/', include((router.urls, 'api')))
 ]
+
+admin.site.site_url = '/api/'
+
+from drf_spectacular.views import (SpectacularAPIView,
+                                   SpectacularRedocView, SpectacularSwaggerView)
+
+urlpatterns += [
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    # Optional UI:
+    path('swagger-doc/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('doc/', SpectacularRedocView.as_view(url_name='schema'), name='doc'),
+]
