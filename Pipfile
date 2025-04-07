@@ -11,6 +11,7 @@ Django = "==4.2.16"
 djangorestframework = "==3.15.2"
 drf-spectacular = {extras = ["sidecar"], version = "*"}
 openapi-core = '==0.19.5'
+pycountry = "*"
 
 [dev-packages]
 pytest = "*"
