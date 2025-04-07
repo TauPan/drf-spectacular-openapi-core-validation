@@ -31,3 +31,12 @@ class TestArtistsList:
         assert response.status_code == 400
         assert (response.json()['name']
                 == ['artist with this name already exists.'])
+
+    def test_reject_invalid_alpha_2_country(self, apiclient):
+        response = apiclient.post(reverse("api:artists-list"),
+                                  {'name': 'Fünf Sterne Deluxe',
+                                   'country': 'HH'})
+        assert response.status_code == 400
+        assert response.json()['country'] == [
+            '"HH" is not a valid choice.'
+        ]
