@@ -26,7 +26,8 @@ class TestArtistsList:
     def test_create_unique(self, apiclient):
         self.test_create(apiclient)
         response = apiclient.post(reverse("api:artists-list"),
-                                  {'name': 'The Beatles'})
+                                  {'name': 'The Beatles',
+                                   'country': 'GB'})
         assert response.status_code == 400
         assert (response.json()['name']
                 == ['artist with this name already exists.'])
