@@ -21,3 +21,11 @@ class TestArtistsList:
         assert models.Artist.objects.count() == 1
         artist = models.Artist.objects.get()
         assert artist.name == 'The Beatles'
+
+    def test_create_unique(self, apiclient):
+        self.test_create(apiclient)
+        response = apiclient.post(reverse("api:artists-list"),
+                                  {'name': 'The Beatles'})
+        assert response.status_code == 400
+        assert (response.json()['name']
+                == ['artist with this name already exists.'])
