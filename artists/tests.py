@@ -20,4 +20,4 @@ class TestArtistsList:
         assert response.status_code == 201
         assert models.Artist.objects.count() == 1
         artist = models.Artist.objects.get()
-        assert artist.name == 'Taylor Swift'
+        assert artist.name == 'The Beatles'
