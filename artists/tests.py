@@ -17,7 +17,8 @@ class TestArtistsList:
     def test_create(self, apiclient):
         response = apiclient.post(reverse("api:artists-list"),
                                   {'name': 'The Beatles',
-                                   'country': 'GB'})
+                                   'country': 'GB',
+                                   'slug_id': 'beatles-42319fb2'})
         assert response.status_code == 201
         assert models.Artist.objects.count() == 1
         artist = models.Artist.objects.get()
