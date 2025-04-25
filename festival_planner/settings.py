@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     'drf_spectacular_sidecar',
-    'artists'
+    'artists',
+    'mails'
 ]
 
 MIDDLEWARE = [
