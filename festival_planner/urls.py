@@ -21,9 +21,14 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 
 import artists.views
+import mails.views
 
 router.register(r'artists',
                 artists.views.ArtistViewSet,
+                basename='artists')
+
+router.register(r'mails',
+                mails.views.MailViewSet,
                 basename='artists')
 
 urlpatterns = [
