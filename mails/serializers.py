@@ -3,8 +3,6 @@ import mails.models
 
 
 class MailSerializer(ModelSerializer):
-    from_addr = EmailField()  # aka Envelope-Address
-    From = EmailField()       # From Header-Field
     To = ListField(child=EmailField(), allow_empty=False)
 
     class Meta:
