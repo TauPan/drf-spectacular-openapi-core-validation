@@ -29,7 +29,7 @@ router.register(r'artists',
 
 router.register(r'mails',
                 mails.views.MailViewSet,
-                basename='artists')
+                basename='mails')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
