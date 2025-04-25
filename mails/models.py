@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.db import models
 
 # Create your models here.
@@ -10,3 +11,6 @@ class Mail(models.Model):
     extra_headers = models.JSONField(null=True)
     mail_body = models.TextField(null=True)
     attachments = models.JSONField(null=True)
+
+
+admin.site.register(Mail)
