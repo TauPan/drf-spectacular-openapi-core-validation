@@ -21,8 +21,7 @@ class AttachmentField(DictField):
 
 
 class MailSerializer(ModelSerializer):
-    To = ListField(child=EmailField(max_length=254), allow_empty=False)
-    attachment = ListField(child=AttachmentField(), allow_empty=True)
+    attachments = ListField(child=AttachmentField(), allow_empty=True)
 
     class Meta:
         model = mails.models.Mail
