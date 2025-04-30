@@ -39,6 +39,9 @@ class JSONSchemaValidator:
         except (jsonschema.SchemaError, ValidationError) as e:
             raise serializers.ValidationError(e)
 
+    def get_schema(self):
+        return self.schema
+
 
 # Create your models here.
 class Mail(models.Model):
@@ -51,7 +54,7 @@ class Mail(models.Model):
          'items': {
              'type': 'string',
              'format': 'email',
-             'max_length': 254
+             'maxLength': 254
          }}
     )],
                           help_text='List of valid Email-Adresses')
