@@ -53,7 +53,8 @@ class Mail(models.Model):
              'format': 'email',
              'max_length': 254
          }}
-    )])
+    )],
+                          help_text='List of valid Email-Adresses')
     extra_headers = models.JSONField(null=True)
     mail_body = models.TextField(null=True)
     attachments = models.JSONField(null=True)
