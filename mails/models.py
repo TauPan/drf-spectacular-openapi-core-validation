@@ -49,15 +49,18 @@ class Mail(models.Model):
     from_addr = models.EmailField()
     Subject = models.TextField(null=True)
     From = models.EmailField(null=True)
-    To = models.JSONField(null=True, validators=[JSONSchemaValidator(
-        {'type': 'array',
-         'items': {
-             'type': 'string',
-             'format': 'email',
-             'maxLength': 254
-         }}
-    )],
-                          help_text='List of valid Email-Adresses')
+    To = models.JSONField(
+        validators=[
+            JSONSchemaValidator(
+                {'type': 'array',
+                 'items': {
+                     'type': 'string',
+                     'format': 'email',
+                     'maxLength': 254
+                 }}
+            )],
+        default=[],
+        help_text='List of valid Email-Adresses')
     extra_headers = models.JSONField(null=True)
     mail_body = models.TextField(null=True)
     attachments = models.JSONField(null=True)
